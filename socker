@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# usage: socker /home/giabao/wd/hocthuc
+docker run --rm -it \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v $HOME/.ivy2:/home/sandinh/.ivy2 \
+  -v $1:/src \
+  sandinh/sbt-node
