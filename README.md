@@ -22,7 +22,7 @@ docker run --rm -it \
 ```
 Or, you can use the [socker](socker) script:
 ```
-sudo wget -o /usr/bin/socker https://raw.githubusercontent.com/giabao/docker-sbt-node/master/socker
+sudo wget -O /usr/bin/socker https://raw.githubusercontent.com/giabao/docker-sbt-node/master/socker
 sudo chmod a+x /usr/bin/socker
 socker /home/giabao/wd/sd-api/
 ```
@@ -41,6 +41,12 @@ sbt docker:publishLocal
 git clone git@github.com:giabao/docker-sbt-node.git
 docker build --rm -t sandinh/sbt-node docker-sbt-node
 ```
+
+## Licence
+This software is licensed under the Apache 2 license:
+http://www.apache.org/licenses/LICENSE-2.0
+
+Copyright 2016 Sân Đình (http://sandinh.com)
 
 ## misc
 This project is inspired by the following document: [Continuos Integration and Deployment with Rancher and Docker](https://cdn2.hubspot.net/hubfs/468859/Continuous_Integration_and_Deployment_with_Rancher_and_Docker.pdf)
