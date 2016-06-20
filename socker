@@ -15,5 +15,5 @@ else
     -v $HOME/.docker/config.json:/home/sandinh/.docker/config.json \
     -v $HOME/.ivy2:/home/sandinh/.ivy2 \
     -v $1:/src \
-    sandinh/sbt-node
+    sandinh/sbt-node:win-mac
 fi
