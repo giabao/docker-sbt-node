@@ -44,14 +44,6 @@ RUN \
   curl -sLk --create-dirs -o ~/.sbt/launchers/$SBT_VERSION/sbt-launch.jar \
     https://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch/$SBT_VERSION/sbt-launch.jar
 
-# cant use alias because java ProcessBuilder - which sbt-native-packager use - will not take that
-# when we run sbt docker:publishLocal
-#  echo "alias docker='sudo docker'" > ~/.bash_aliases && \
-RUN \
-  mkdir ~/bin && \
-  echo '#!/usr/bin/env bash\nsudo /usr/bin/docker "$@"\n' > ~/bin/docker && \
-  chmod +x ~/bin/docker
-
 VOLUME ["$HOME/.ivy2", "/src"]
 
 WORKDIR /src

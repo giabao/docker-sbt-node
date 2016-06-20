@@ -1,7 +1,19 @@
 #!/usr/bin/env bash
 # usage: socker /home/giabao/wd/hocthuc
-docker run --rm -it \
-  -v /var/run/docker.sock:/var/run/docker.sock \
-  -v $HOME/.ivy2:/home/sandinh/.ivy2 \
-  -v $1:/src \
-  sandinh/sbt-node
+
+if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+  docker run --rm -it \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v $HOME/.ivy2:/home/sandinh/.ivy2 \
+    -v $1:/src \
+    sandinh/sbt-node
+else
+  docker run --rm -it \
+    -e DOCKER_TLS_VERIFY=1 \
+    -e DOCKER_HOST=$DOCKER_HOST \
+    -v $HOME/.docker/machine/machines/default/:/home/sandinh/.docker:ro \
+    -v $HOME/.docker/config.json:/home/sandinh/.docker/config.json \
+    -v $HOME/.ivy2:/home/sandinh/.ivy2 \
+    -v $1:/src \
+    sandinh/sbt-node
+fi

@@ -9,7 +9,6 @@ socker support building project by providing the following features:
 + pre-installed sbt 0.13.11
 + pre-configured user with `sudo` right.
 
-
 ## using example
 1. Run:
 ```
@@ -34,6 +33,24 @@ typings install
 gulp release
 sbt clean
 sbt docker:publishLocal
+```
+
+## using in Windows / OSX
+1. Your source code should be in /Users (OS X) or C:\Users (Windows) directory.
+This will simplify the mounting process. See [Mount a host directory as a data volume](https://docs.docker.com/engine/userguide/containers/dockervolumes/#mount-a-host-directory-as-a-data-volume)
+Else, you can create an Auto-mount & Permanent shared folder for the `default` machine in VirtualBox UI.
+Ex: name = wd, path = D:\wd
+Then, [run in Docker Terminal](https://github.com/docker/machine/issues/1814#issuecomment-152739994):
+```
+docker-machine ssh default 'sudo mkdir -p //wd && sudo mount -t vboxsf  wd //wd'
+```
+
+2. Ensure that in Docker Terminal, you can run `docker info`.
+If not, pls exec steps 5, 6 at [docker-machine env](https://docs.docker.com/machine/get-started/#create-a-machine)
+
+3. run socker
+```
+socker /home/giabao/wd/sd-api/
 ```
 
 ## build docker image locally
