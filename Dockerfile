@@ -22,7 +22,7 @@ RUN \
   && npm install fs-extra \
   && sed -i -e s/graceful-fs/fs-extra/ -e s/fs.rename/fs.move/ ./lib/utils/rename.js
 
-RUN npm install -g bower@1.7.9 gulp@3.9.1 grunt-cli@1.2.0 typings@1.0.5
+RUN npm install -g bower@1.7.9 gulp@3.9.1 grunt-cli@1.2.0 typings@1.3.0
 
 # https://docs.docker.com/engine/installation/binaries/
 RUN \
