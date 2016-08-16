@@ -1,6 +1,6 @@
 FROM java:8
 
-ENV SBT_VERSION 0.13.11
+ENV SBT_VERSION 0.13.12
 
 # http://serverfault.com/a/743015/179477
 # https://github.com/docker/docker/issues/1799#issuecomment-126083922
